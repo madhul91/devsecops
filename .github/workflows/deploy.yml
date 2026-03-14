@@ -21,9 +21,9 @@ jobs:
       - name : frontend compilation
         run : |
           cd client
-          find . -name "*.js" -exec node --check{} +  
+          find . -name "*.js" -exec node --check {} +  
           
       - name : frontend compilation
         run : |
           cd api
-           find . -name "*.js" -exec node --check{} +     
+           find . -name "*.js" -exec node --check {} +     
