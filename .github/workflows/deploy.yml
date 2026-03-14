@@ -1,0 +1,29 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name : setup node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '23'    
+      
+      - name : frontend compilation
+        run : |
+          cd client
+          find . -name "*.js" -exec node --check{} +  
+          
+      - name : frontend compilation
+        run : |
+          cd api
+           find . -name "*.js" -exec node --check{} +     
